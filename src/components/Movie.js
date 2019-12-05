@@ -19,9 +19,9 @@ import {
 import SectionContainer from "./sectionContainer";
 
 const Movie = props => {
-  const addToCart = e => {
-    console.log("add to cart ", e.target.id);
-  };
+  //   const addToCart = e => {
+  //     console.log("add to cart ", e.target.id);
+  //   };
 
   return (
     <MDBCard wide ecommerce style={{ display: "inline-block" }}>
@@ -38,26 +38,29 @@ const Movie = props => {
           </strong>
         </MDBCardTitle>
         <MDBCardText>{props.movie.description}</MDBCardText>
-        <MDBCardFooter className="px-1" style={{ backgroundColor: "#FFF" }}>
+        <MDBCardFooter
+          className="px-1"
+          style={{ backgroundColor: "#FFF", paddingBottom: 0 }}
+        >
           <div
-            className="float-left font-weight-bold"
-            style={{ fontSize: "1.2rem", marginBottom: "6px" }}
+            className="font-weight-bold "
+            style={{ fontSize: "1.2rem", marginBottom: "0px" }}
           >
             <strong>{props.movie.price}</strong>
           </div>
-          <div className="float-right">
-            <Fragment>
-              <MDBBtn
-                color="amber"
-                size="sm"
-                style={{ marginTop: 0, marginBottom: "12px" }}
-                onClick={addToCart}
-                id={props.movie.id}
-              >
-                <MDBIcon icon="shopping-cart" className="mr-1" /> Add To Cart
-              </MDBBtn>
-            </Fragment>
-          </div>
+          {/* <div className="float-right"> */}
+          <Fragment>
+            <MDBBtn
+              color="amber"
+              size="sm"
+              style={{ marginTop: 0, marginBottom: "0px" }}
+              onClick={() => props.addToCart(props.movie.id)}
+              id={props.movie.id}
+            >
+              <MDBIcon icon="shopping-cart" className="mr-1" /> Add To Cart
+            </MDBBtn>
+          </Fragment>
+          {/* </div> */}
         </MDBCardFooter>
       </MDBCardBody>
     </MDBCard>
