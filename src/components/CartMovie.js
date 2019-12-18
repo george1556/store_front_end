@@ -1,20 +1,14 @@
 import React, { Fragment } from "react";
 import {
-  MDBContainer,
   MDBCol,
   MDBRow,
   MDBCard,
-  MDBCardUp,
   MDBCardBody,
   MDBCardImage,
   MDBCardTitle,
-  MDBCardText,
-  MDBAvatar,
-  MDBRotatingCard,
   MDBIcon,
   MDBBtn,
-  MDBCardFooter,
-  MDBTooltip
+  MDBCardFooter
 } from "mdbreact";
 
 const CartMovie = props => {
@@ -24,36 +18,66 @@ const CartMovie = props => {
       ecommerce
       style={{ display: "inline-block", marginBottom: "10px" }}
     >
-      <MDBCardImage
+      {/* <MDBCardImage
         cascade
         src="https://picsum.photos/seed/picsum/336/224"
         top
         alt="sample photo"
-      />
+        style={{ padding: "5px", paddingBottom: 0 }}
+      /> */}
       <MDBCardBody
         cascade
         className="text-center"
         style={{ paddingBottom: "5px" }}
       >
-        <MDBCardTitle>
-          <strong style={{ textAlign: "left" }}>
-            <a href="#!">{props.movie.title}</a>
+        <MDBRow>
+          <MDBCol style={{ paddingLeft: 0, paddingRight: "2px" }}>
+            {" "}
+            <MDBCardImage
+              cascade
+              src="https://picsum.photos/seed/picsum/336/224"
+              top
+              alt="sample photo"
+              style={{ padding: "5px", paddingBottom: "5px" }}
+            />
+          </MDBCol>
+        </MDBRow>
+        <MDBRow>
+          <MDBCol style={{ paddingRight: 0, paddingLeft: "2px" }}>
+            <MDBCardTitle>
+              <strong
+                style={{
+                  textAlign: "left",
+                  color: "#4285F4",
+                  fontSize: "1rem"
+                }}
+              >
+                {props.movie.title}
+              </strong>
+            </MDBCardTitle>
+          </MDBCol>
+        </MDBRow>
+        {/* <MDBCardTitle>
+          <strong
+            style={{ textAlign: "left", color: "#4285F4", fontSize: "1.2rem" }}
+          >
+            {props.movie.title}
           </strong>
-        </MDBCardTitle>
-        {/* <MDBCardText>{props.movie.description}</MDBCardText> */}
+        </MDBCardTitle> */}
         <MDBCardFooter
           className="px-1"
           style={{
             backgroundColor: "#FFF",
             marginBottom: "0px",
-            paddingBottom: "0px"
+            paddingBottom: "0px",
+            paddingTop: "6px"
           }}
         >
           <MDBRow>
             <MDBCol>
               <div
                 className="font-weight-bold"
-                style={{ fontSize: "1.2rem", marginBottom: "6px" }}
+                style={{ fontSize: "1rem", marginBottom: "0px" }}
               >
                 <strong>{props.movie.price}</strong>
               </div>
@@ -61,7 +85,9 @@ const CartMovie = props => {
           </MDBRow>
           <MDBRow>
             <MDBCol>
-              <div>Quantity: {props.movie.cartQuantity}</div>
+              <div style={{ marginBottom: "3px" }}>
+                Quantity: {props.movie.cartQuantity}
+              </div>
             </MDBCol>
           </MDBRow>
 
@@ -76,8 +102,8 @@ const CartMovie = props => {
                     onClick={() => props.removeFromCart(props.movie.id)}
                     id={props.movie.id}
                   >
-                    <MDBIcon icon="arrow-alt-circle-right" className="mr-1" />{" "}
-                    Remove From Cart
+                    <MDBIcon icon="cart-arrow-down" className="mr-1" /> Remove
+                    From Cart
                   </MDBBtn>
                 </Fragment>
               </div>

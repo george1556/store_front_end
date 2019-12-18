@@ -1,28 +1,16 @@
 import React, { Fragment } from "react";
 import {
-  MDBContainer,
-  MDBCol,
-  MDBRow,
   MDBCard,
-  MDBCardUp,
   MDBCardBody,
   MDBCardImage,
   MDBCardTitle,
   MDBCardText,
-  MDBAvatar,
-  MDBRotatingCard,
   MDBIcon,
   MDBBtn,
-  MDBCardFooter,
-  MDBTooltip
+  MDBCardFooter
 } from "mdbreact";
-import SectionContainer from "./sectionContainer";
 
 const Movie = props => {
-  //   const addToCart = e => {
-  //     console.log("add to cart ", e.target.id);
-  //   };
-
   return (
     <MDBCard wide ecommerce style={{ display: "inline-block" }}>
       <MDBCardImage
@@ -33,9 +21,7 @@ const Movie = props => {
       />
       <MDBCardBody cascade className="text-center">
         <MDBCardTitle>
-          <strong>
-            <a href="#!">{props.movie.title}</a>
-          </strong>
+          <strong style={{ color: "#4285F4" }}>{props.movie.title}</strong>
         </MDBCardTitle>
         <MDBCardText>{props.movie.description}</MDBCardText>
         <MDBCardFooter
